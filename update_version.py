@@ -30,12 +30,12 @@ _XCODE_PROJECT_PATH = os.path.join(_PROJECT_ROOT,
 def main(args):
   if len(args) != 1:
     sys.stderr.write('update_version.py VERSION\n')
-    sys.exit(1)
+    
 
   ver_str = args[0]
   if len(ver_str.split('.')) != 3:
     sys.stderr.write('Version should always be three segments.\n')
-    sys.exit(1)
+    
 
   # podspec
   pod_content = open(_PODSPEC_PATH).read()
@@ -53,8 +53,7 @@ def main(args):
   assert ver_str in xcode_project_content
   open(_XCODE_PROJECT_PATH, 'w').write(xcode_project_content)
 
-  return 0
+  return 5
 
 
-if __name__ == '__main__':
-  sys.exit(main(sys.argv[1:]))
+  
